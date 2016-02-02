@@ -1,5 +1,6 @@
 package edu.westga.cs6242.robertcarswellactivities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class DisplayMessageActivity extends AppCompatActivity {
+
+    Intent intent = getIntent();
+    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +30,4 @@ public class DisplayMessageActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 }
