@@ -7,14 +7,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class DisplayMessageActivity extends AppCompatActivity {
+public class DisplayMessage2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_display_message2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,10 +34,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE1);
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setTextSize(40);
-        textView.setText(message);
+        String message1 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE1);
+        TextView textView1 = new TextView(this);
+        textView1.setTextSize(40);
+        textView1.setText(message1);
 
+        String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
+        TextView textView2 = new TextView(this);
+        textView1.setTextSize(40);
+        textView1.setText(message2);
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content2);
+        layout.addView(textView1);
+        layout.addView(textView2);
     }
 }

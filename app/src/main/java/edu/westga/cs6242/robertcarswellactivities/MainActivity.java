@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "edu.westga.cs6242.robertcarswellactivities.MESSAGE";
-
+    public final static String EXTRA_MESSAGE1 = "edu.westga.cs6242.robertcarswellactivities.MESSAGE1";
+    public final static String EXTRA_MESSAGE2 = "edu.westga.cs6242.robertcarswellactivities.MESSAGE2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(EXTRA_MESSAGE1, message);
+        startActivity(intent);
+    }
+
+    /**
+     * Called when the user clicks the Send button for second message
+     */
+    public void sendMessage2(View view) {
+        Intent intent = new Intent(this, DisplayMessage2Activity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message2);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE2, message);
         startActivity(intent);
     }
 }
